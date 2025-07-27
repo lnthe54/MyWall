@@ -7,7 +7,7 @@ class RemoteConfigManager {
     static let shared = RemoteConfigManager()
     
     enum RemoteConfigKeys: String {
-        case clientID = "client_id"
+        case clientID = "clientId"
     }
     
     private init() {

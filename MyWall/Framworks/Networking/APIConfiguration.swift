@@ -48,10 +48,17 @@ extension APIConfiguration {
 }
 
 extension APIConfiguration {
-    func getCommonParams(page: Int = 0, categoryID: Int = 0) -> APIRequestParams {
-        let params: [String: Any] = [
-            "api_key": ""
+    func getParams(request: PhotoRequest) -> APIRequestParams {
+        var params: [String: Any] = [
+            "client_id": RemoteConfigManager.shared.string(forKey: .clientID)
         ]
+        
+        params["per_page"] = request.perPage
+        
+        if let orderBy = request.orderBy {
+            params["order_by"] = orderBy
+        }
+        
         return .query(params)
     }
     

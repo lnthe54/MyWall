@@ -39,6 +39,10 @@
 		99C3CA352E367F6F00691885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA342E367F6F00691885 /* GoogleService-Info.plist */; };
 		99C3CA372E36807600691885 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA362E36807600691885 /* RemoteConfigManager.swift */; };
 		99C3CA392E36817D00691885 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA382E36817400691885 /* SplashViewModel.swift */; };
+		99C3CA3F2E3684A300691885 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA3C2E3684A300691885 /* PhotoRouter.swift */; };
+		99C3CA422E3684D000691885 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA412E3684CE00691885 /* Constants.swift */; };
+		99C3CA452E36880000691885 /* PhotoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA442E3687FD00691885 /* PhotoElement.swift */; };
+		99C3CA482E3689F100691885 /* PhotoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA472E3689F100691885 /* PhotoClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +81,10 @@
 		99C3CA342E367F6F00691885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99C3CA362E36807600691885 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		99C3CA382E36817400691885 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		99C3CA3C2E3684A300691885 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
+		99C3CA412E3684CE00691885 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		99C3CA442E3687FD00691885 /* PhotoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoElement.swift; sourceTree = "<group>"; };
+		99C3CA472E3689F100691885 /* PhotoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClient.swift; sourceTree = "<group>"; };
 		F204B8504CA8DDAFAE8198FD /* Pods-MyWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWall.debug.xcconfig"; path = "Target Support Files/Pods-MyWall/Pods-MyWall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,8 +231,12 @@
 			isa = PBXGroup;
 			children = (
 				99C3CA252E36793D00691885 /* BaseViewController.swift */,
+				99C3CA412E3684CE00691885 /* Constants.swift */,
 				99C3CA362E36807600691885 /* RemoteConfigManager.swift */,
+				99C3CA462E3689DE00691885 /* Client */,
 				99C3CA2C2E36798A00691885 /* Extensions */,
+				99C3CA432E3687F300691885 /* Model */,
+				99C3CA3D2E3684A300691885 /* Router */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -236,6 +248,30 @@
 				99C3CA2B2E36798A00691885 /* Notification+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		99C3CA3D2E3684A300691885 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA3C2E3684A300691885 /* PhotoRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		99C3CA432E3687F300691885 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA442E3687FD00691885 /* PhotoElement.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99C3CA462E3689DE00691885 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA472E3689F100691885 /* PhotoClient.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,9 +393,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C3CA212E36785A00691885 /* MainViewController.swift in Sources */,
+				99C3CA452E36880000691885 /* PhotoElement.swift in Sources */,
 				99C3CA222E36785A00691885 /* MainViewPager.swift in Sources */,
 				99C3C98B2E3673C500691885 /* SplashViewController.swift in Sources */,
+				99C3CA3F2E3684A300691885 /* PhotoRouter.swift in Sources */,
+				99C3CA422E3684D000691885 /* Constants.swift in Sources */,
 				99C3CA0D2E3676CB00691885 /* NetworkLogger.swift in Sources */,
+				99C3CA482E3689F100691885 /* PhotoClient.swift in Sources */,
 				99C3CA0E2E3676CB00691885 /* Date+Extension.swift in Sources */,
 				99C3CA262E36793D00691885 /* BaseViewController.swift in Sources */,
 				99C3CA0F2E3676CB00691885 /* ViewModelType.swift in Sources */,
