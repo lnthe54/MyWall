@@ -1,12 +1,21 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SplashViewController: BaseViewController {
 
     // MARK: - Properties
     private var navigator: SplashNavigator
+    private var viewModel: SplashViewModel
     
-    init(navigator: SplashNavigator) {
+    private let getDataTrigger = PublishSubject<Void>()
+    
+    init(
+        navigator: SplashNavigator,
+        viewModel: SplashViewModel
+    ) {
         self.navigator = navigator
+        self.viewModel = viewModel
         super.init(nibName: Self.className, bundle: nil)
     }
     
@@ -16,9 +25,38 @@ class SplashViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.navigator.gotoMainViewController()
-        }
+        
+        getDataTrigger.onNext(())
+    }
+    
+    override func setupViews() {
+        
+    }
+    
+    override func bindViewModel() {
+        let input = SplashViewModel.Input(
+            getDataTrigger: getDataTrigger.asObservable()
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.loadingEvent
+            .driveNext { _ in
+                // Do something
+            }
+            .disposed(by: disposeBag)
+        
+        output.errorEvent
+            .driveNext { _ in
+                // Do something
+            }
+            .disposed(by: disposeBag)
+        
+        output.getDataEvent
+            .driveNext { [weak self] _ in
+                guard let self else { return }
+                
+                navigator.gotoMainViewController()
+            }
+            .disposed(by: disposeBag)
     }
 }

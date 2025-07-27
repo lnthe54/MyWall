@@ -37,6 +37,8 @@
 		99C3CA312E36798A00691885 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA2B2E36798A00691885 /* Notification+Extension.swift */; };
 		99C3CA332E367BEF00691885 /* SplashNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA322E367BEB00691885 /* SplashNavigator.swift */; };
 		99C3CA352E367F6F00691885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA342E367F6F00691885 /* GoogleService-Info.plist */; };
+		99C3CA372E36807600691885 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA362E36807600691885 /* RemoteConfigManager.swift */; };
+		99C3CA392E36817D00691885 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA382E36817400691885 /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		99C3CA2B2E36798A00691885 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		99C3CA322E367BEB00691885 /* SplashNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigator.swift; sourceTree = "<group>"; };
 		99C3CA342E367F6F00691885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99C3CA362E36807600691885 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
+		99C3CA382E36817400691885 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		F204B8504CA8DDAFAE8198FD /* Pods-MyWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWall.debug.xcconfig"; path = "Target Support Files/Pods-MyWall/Pods-MyWall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +162,7 @@
 		99C3C9882E36738C00691885 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				99C3CA382E36817400691885 /* SplashViewModel.swift */,
 				99C3CA322E367BEB00691885 /* SplashNavigator.swift */,
 				99C3C9892E3673C500691885 /* SplashViewController.swift */,
 				99C3C98A2E3673C500691885 /* SplashViewController.xib */,
@@ -217,8 +222,9 @@
 		99C3CA242E36792500691885 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				99C3CA2C2E36798A00691885 /* Extensions */,
 				99C3CA252E36793D00691885 /* BaseViewController.swift */,
+				99C3CA362E36807600691885 /* RemoteConfigManager.swift */,
+				99C3CA2C2E36798A00691885 /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 				99C3CA0E2E3676CB00691885 /* Date+Extension.swift in Sources */,
 				99C3CA262E36793D00691885 /* BaseViewController.swift in Sources */,
 				99C3CA0F2E3676CB00691885 /* ViewModelType.swift in Sources */,
+				99C3CA372E36807600691885 /* RemoteConfigManager.swift in Sources */,
 				99C3CA102E3676CB00691885 /* Rx+Extension.swift in Sources */,
 				99C3CA112E3676CB00691885 /* Array+Extension.swift in Sources */,
 				99C3CA122E3676CB00691885 /* Then.swift in Sources */,
@@ -370,6 +377,7 @@
 				99C3CA192E3676CB00691885 /* APIResponse.swift in Sources */,
 				99C3CA1A2E3676CB00691885 /* NSObject+Extension.swift in Sources */,
 				99C3CA302E36798A00691885 /* UICollectionView+Extension.swift in Sources */,
+				99C3CA392E36817D00691885 /* SplashViewModel.swift in Sources */,
 				99C3CA312E36798A00691885 /* Notification+Extension.swift in Sources */,
 				99C3CA1B2E3676CB00691885 /* UIView+Extension.swift in Sources */,
 				99C3CA1C2E3676CB00691885 /* UIColor+Extension.swift in Sources */,
@@ -397,9 +405,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 678Z7S5FB3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyWall/SupportFiles/Info.plist;
@@ -412,8 +420,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theln.MyWall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qsu.mywall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -430,9 +439,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 678Z7S5FB3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyWall/SupportFiles/Info.plist;
@@ -445,8 +454,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theln.MyWall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qsu.mywall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
