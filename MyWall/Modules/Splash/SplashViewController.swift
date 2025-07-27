@@ -1,8 +1,12 @@
 import UIKit
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController {
 
-    init() {
+    // MARK: - Properties
+    private var navigator: SplashNavigator
+    
+    init(navigator: SplashNavigator) {
+        self.navigator = navigator
         super.init(nibName: Self.className, bundle: nil)
     }
     
@@ -13,7 +17,8 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.navigator.gotoMainViewController()
+        }
     }
-
 }

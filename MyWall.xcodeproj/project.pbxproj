@@ -29,6 +29,13 @@
 		99C3CA1A2E3676CB00691885 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3C9FD2E3676CB00691885 /* NSObject+Extension.swift */; };
 		99C3CA1B2E3676CB00691885 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA022E3676CB00691885 /* UIView+Extension.swift */; };
 		99C3CA1C2E3676CB00691885 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA012E3676CB00691885 /* UIColor+Extension.swift */; };
+		99C3CA212E36785A00691885 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA1E2E36785A00691885 /* MainViewController.swift */; };
+		99C3CA222E36785A00691885 /* MainViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA1D2E36785A00691885 /* MainViewPager.swift */; };
+		99C3CA232E36785A00691885 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA1F2E36785A00691885 /* MainViewController.xib */; };
+		99C3CA262E36793D00691885 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA252E36793D00691885 /* BaseViewController.swift */; };
+		99C3CA302E36798A00691885 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA2A2E36798A00691885 /* UICollectionView+Extension.swift */; };
+		99C3CA312E36798A00691885 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA2B2E36798A00691885 /* Notification+Extension.swift */; };
+		99C3CA332E367BEF00691885 /* SplashNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA322E367BEB00691885 /* SplashNavigator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +64,13 @@
 		99C3CA082E3676CB00691885 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		99C3CA092E3676CB00691885 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		99C3CA0A2E3676CB00691885 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		99C3CA1D2E36785A00691885 /* MainViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPager.swift; sourceTree = "<group>"; };
+		99C3CA1E2E36785A00691885 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		99C3CA1F2E36785A00691885 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		99C3CA252E36793D00691885 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		99C3CA2A2E36798A00691885 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		99C3CA2B2E36798A00691885 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		99C3CA322E367BEB00691885 /* SplashNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigator.swift; sourceTree = "<group>"; };
 		F204B8504CA8DDAFAE8198FD /* Pods-MyWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWall.debug.xcconfig"; path = "Target Support Files/Pods-MyWall/Pods-MyWall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +126,7 @@
 			children = (
 				99C3C9742E33634700691885 /* AppDelegate.swift */,
 				99C3CA0C2E3676CB00691885 /* Framworks */,
+				99C3CA242E36792500691885 /* Common */,
 				99C3C9872E36737E00691885 /* Modules */,
 				99C3C9862E36731200691885 /* SupportFiles */,
 			);
@@ -131,6 +146,7 @@
 		99C3C9872E36737E00691885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				99C3CA202E36785A00691885 /* Main */,
 				99C3C9882E36738C00691885 /* Splash */,
 			);
 			path = Modules;
@@ -139,6 +155,7 @@
 		99C3C9882E36738C00691885 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				99C3CA322E367BEB00691885 /* SplashNavigator.swift */,
 				99C3C9892E3673C500691885 /* SplashViewController.swift */,
 				99C3C98A2E3673C500691885 /* SplashViewController.xib */,
 			);
@@ -182,6 +199,34 @@
 				99C3CA0B2E3676CB00691885 /* Networking */,
 			);
 			path = Framworks;
+			sourceTree = "<group>";
+		};
+		99C3CA202E36785A00691885 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA1D2E36785A00691885 /* MainViewPager.swift */,
+				99C3CA1E2E36785A00691885 /* MainViewController.swift */,
+				99C3CA1F2E36785A00691885 /* MainViewController.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		99C3CA242E36792500691885 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA2C2E36798A00691885 /* Extensions */,
+				99C3CA252E36793D00691885 /* BaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		99C3CA2C2E36798A00691885 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA2A2E36798A00691885 /* UICollectionView+Extension.swift */,
+				99C3CA2B2E36798A00691885 /* Notification+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +293,7 @@
 				99C3C97E2E33634700691885 /* Assets.xcassets in Resources */,
 				99C3C98C2E3673C500691885 /* SplashViewController.xib in Resources */,
 				99C3C9802E33634700691885 /* LaunchScreen.storyboard in Resources */,
+				99C3CA232E36785A00691885 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,9 +346,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C3CA212E36785A00691885 /* MainViewController.swift in Sources */,
+				99C3CA222E36785A00691885 /* MainViewPager.swift in Sources */,
 				99C3C98B2E3673C500691885 /* SplashViewController.swift in Sources */,
 				99C3CA0D2E3676CB00691885 /* NetworkLogger.swift in Sources */,
 				99C3CA0E2E3676CB00691885 /* Date+Extension.swift in Sources */,
+				99C3CA262E36793D00691885 /* BaseViewController.swift in Sources */,
 				99C3CA0F2E3676CB00691885 /* ViewModelType.swift in Sources */,
 				99C3CA102E3676CB00691885 /* Rx+Extension.swift in Sources */,
 				99C3CA112E3676CB00691885 /* Array+Extension.swift in Sources */,
@@ -311,10 +360,13 @@
 				99C3CA142E3676CB00691885 /* AuthInterceptor.swift in Sources */,
 				99C3CA152E3676CB00691885 /* APIClient.swift in Sources */,
 				99C3CA162E3676CB00691885 /* UIViewController+Extension.swift in Sources */,
+				99C3CA332E367BEF00691885 /* SplashNavigator.swift in Sources */,
 				99C3CA172E3676CB00691885 /* String+Extension.swift in Sources */,
 				99C3CA182E3676CB00691885 /* APIConfiguration.swift in Sources */,
 				99C3CA192E3676CB00691885 /* APIResponse.swift in Sources */,
 				99C3CA1A2E3676CB00691885 /* NSObject+Extension.swift in Sources */,
+				99C3CA302E36798A00691885 /* UICollectionView+Extension.swift in Sources */,
+				99C3CA312E36798A00691885 /* Notification+Extension.swift in Sources */,
 				99C3CA1B2E3676CB00691885 /* UIView+Extension.swift in Sources */,
 				99C3CA1C2E3676CB00691885 /* UIColor+Extension.swift in Sources */,
 				99C3C9822E33634700691885 /* AppDelegate.swift in Sources */,

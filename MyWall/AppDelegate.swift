@@ -15,9 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     private func getViewController() -> UIViewController {
-        let viewController = SplashViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController()
         navigationController.navigationBar.isHidden = true
+        
+        let navigator = DefaultSplashNavigator(navigationController: navigationController)
+        let splashViewController = SplashViewController(navigator: navigator)
+        navigationController.viewControllers = [splashViewController]
+        
         return navigationController
     }
 }
