@@ -36,6 +36,7 @@
 		99C3CA302E36798A00691885 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA2A2E36798A00691885 /* UICollectionView+Extension.swift */; };
 		99C3CA312E36798A00691885 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA2B2E36798A00691885 /* Notification+Extension.swift */; };
 		99C3CA332E367BEF00691885 /* SplashNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA322E367BEB00691885 /* SplashNavigator.swift */; };
+		99C3CA352E367F6F00691885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA342E367F6F00691885 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		99C3CA2A2E36798A00691885 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		99C3CA2B2E36798A00691885 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		99C3CA322E367BEB00691885 /* SplashNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigator.swift; sourceTree = "<group>"; };
+		99C3CA342E367F6F00691885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F204B8504CA8DDAFAE8198FD /* Pods-MyWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWall.debug.xcconfig"; path = "Target Support Files/Pods-MyWall/Pods-MyWall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 		99C3C9862E36731200691885 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				99C3CA342E367F6F00691885 /* GoogleService-Info.plist */,
 				99C3C9752E33634700691885 /* Assets.xcassets */,
 				99C3C9762E33634700691885 /* Info.plist */,
 				99C3C9782E33634700691885 /* LaunchScreen.storyboard */,
@@ -292,6 +295,7 @@
 			files = (
 				99C3C97E2E33634700691885 /* Assets.xcassets in Resources */,
 				99C3C98C2E3673C500691885 /* SplashViewController.xib in Resources */,
+				99C3CA352E367F6F00691885 /* GoogleService-Info.plist in Resources */,
 				99C3C9802E33634700691885 /* LaunchScreen.storyboard in Resources */,
 				99C3CA232E36785A00691885 /* MainViewController.xib in Resources */,
 			);

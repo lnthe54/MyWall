@@ -16,5 +16,3 @@ class DefaultSplashNavigator: SplashNavigator {
         navigationController.pushViewController(mainViewController, animated: true)
     }
 }
-
-
