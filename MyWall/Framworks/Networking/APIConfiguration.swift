@@ -48,7 +48,7 @@ extension APIConfiguration {
 }
 
 extension APIConfiguration {
-    func getParams(request: PhotoRequest) -> APIRequestParams {
+    func getParams(request: ComoponentRequest) -> APIRequestParams {
         var params: [String: Any] = [
             "client_id": RemoteConfigManager.shared.string(forKey: .clientID)
         ]
@@ -77,6 +77,11 @@ extension APIConfiguration {
             return [:]
         }
     }
+}
+
+struct ComoponentRequest {
+    var orderBy: String? = nil
+    var perPage: Int = 10
 }
 
 enum HTTPHeaderField: String {

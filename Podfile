@@ -12,6 +12,9 @@ target 'MyWall' do
   pod 'RxCocoa', '6.8.0'
   pod 'RxGesture'
 
+  # Animation
+  pod 'lottie-ios'
+  
   # Firebase
   pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git',
   :tag => 'CocoaPods-10.24.0'

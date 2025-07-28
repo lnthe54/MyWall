@@ -2,8 +2,8 @@ import Foundation
 
 struct PhotoElement: Codable {
     var id: String?
-    var createdAt: Date?
-    var updatedAt: Date?
+    var createdAt: String?
+    var updatedAt: String?
     var width: Int?
     var height: Int?
     var color: String?

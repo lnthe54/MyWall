@@ -1,10 +1,23 @@
 import UIKit
+import RxSwift
+import RxCocoa
+
+enum DiscoverSectionType {
+    case trending
+    case category
+}
 
 class DiscoverViewController: BaseViewController {
 
     // MARK: - Properties
     private var navigator: DiscoverNavigator
     private var viewModel: DiscoverViewModel
+    private var discoverData: DiscoverData = .empty()
+    
+    private let getDataTrigger = PublishSubject<Void>()
+    
+    // MARK: - IBOutlets
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     init(
         navigator: DiscoverNavigator,
@@ -22,6 +35,7 @@ class DiscoverViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getDataTrigger.onNext(())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,10 +45,112 @@ class DiscoverViewController: BaseViewController {
     }
     
     override func setupViews() {
-        
+        collectionView.configure(
+            withCells: [PhotoCell.self, CategoryCell.self],
+            dataSource: self,
+            contentInset: UIEdgeInsets(top: 0, left: 0, bottom: Constants.BOTTOM_TABBAR, right: 0)
+        )
+        configureCompositionalLayout()
     }
     
     override func bindViewModel() {
+        let input = DiscoverViewModel.Input(
+            getDataTrigger: getDataTrigger.asObservable()
+        )
+        let output = viewModel.transform(input: input)
         
+        output.loadingEvent
+            .driveNext { [weak self] isLoading in
+                self?.showLoadingView(isLoading: isLoading)
+            }
+            .disposed(by: disposeBag)
+        
+        output.errorEvent
+            .driveNext { error in
+                print("ERROR: \(error.localizedDescription)")
+            }
+            .disposed(by: disposeBag)
+        
+        output.getDataEvent
+            .driveNext { [weak self] discoverData in
+                guard let self else { return }
+                
+                self.discoverData = discoverData
+                collectionView.reloadData()
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension DiscoverViewController {
+    private func configureCompositionalLayout() {
+        let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, _) in
+            guard let self = self else { return AppLayout.defaultSection() }
+            let section = self.getSections()[sectionIndex]
+            
+            switch section {
+            case .trending:
+                return AppLayout.horizontalSection(isShowHeader: false)
+            case .category:
+                return AppLayout.categorySection()
+            }
+        }
+        
+        collectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    private func getSections() -> [DiscoverSectionType] {
+        var sections: [DiscoverSectionType] = []
+        
+        if discoverData.trendingItems.isNotEmpty {
+            sections.append(.trending)
+        }
+        
+        if discoverData.categories.isNotEmpty {
+            sections.append(.category)
+        }
+        
+        return sections
+    }
+}
+
+extension DiscoverViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return getSections().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch getSections()[section] {
+        case .trending:
+            return discoverData.trendingItems.count
+        case .category:
+            return discoverData.categories.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch getSections()[indexPath.section] {
+        case .trending:
+            return photoCell(collectionView, cellForItemAt: indexPath)
+        case .category:
+            return categoryCell(collectionView, cellForItemAt: indexPath)
+        }
+    }
+    
+    private func photoCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> PhotoCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.className, for: indexPath) as! PhotoCell
+        if let urlElement = discoverData.trendingItems[indexPath.row].urls {
+            cell.bindURL(urlElement)
+        }
+        return cell
+    }
+    
+    private func categoryCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> CategoryCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.className, for: indexPath) as! CategoryCell
+        let category = discoverData.categories[indexPath.row]
+        if let title = category.title, let urlElement = category.coverPhoto?.urls {
+            cell.bindCategory(title: title, url: urlElement)
+        }
+        return cell
     }
 }

@@ -34,4 +34,12 @@ extension BaseViewController {
     func postNoficaition(name: Notification.Name) {
         NotificationCenter.default.post(name: name, object: nil)
     }
+    
+    func showLoadingView(isLoading: Bool) {
+        if isLoading {
+            LoadingView.shared.startLoading()
+        } else {
+            LoadingView.shared.endLoading()
+        }
+    }
 }
