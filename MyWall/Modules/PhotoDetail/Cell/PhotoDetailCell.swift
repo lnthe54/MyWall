@@ -1,7 +1,7 @@
 import UIKit
 import Kingfisher
 
-class PhotoCell: UICollectionViewCell {
+class PhotoDetailCell: UICollectionViewCell {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -15,7 +15,7 @@ class PhotoCell: UICollectionViewCell {
 
     func bindURL(_ url: URLElement) {
         posterImageView.kf.setImage(
-            with: URL(string: url.small ?? ""),
+            with: URL(string: url.raw ?? ""),
             placeholder: UIImage(named: "ic_loading"),
             options: [.transition(ImageTransition.fade(1))]
         )

@@ -47,6 +47,7 @@ class DiscoverViewController: BaseViewController {
     override func setupViews() {
         collectionView.configure(
             withCells: [PhotoCell.self, CategoryCell.self],
+            delegate: self,
             dataSource: self,
             contentInset: UIEdgeInsets(top: 0, left: 0, bottom: Constants.BOTTOM_TABBAR, right: 0)
         )
@@ -152,5 +153,16 @@ extension DiscoverViewController: UICollectionViewDataSource {
             cell.bindCategory(title: title, url: urlElement)
         }
         return cell
+    }
+}
+
+extension DiscoverViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch getSections()[indexPath.section] {
+        case .trending:
+            navigator.gotoPhotoDetail(selectedIndex: indexPath.row, items: discoverData.trendingItems)
+        case .category:
+            break
+        }
     }
 }

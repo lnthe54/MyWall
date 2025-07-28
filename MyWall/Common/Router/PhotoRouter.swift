@@ -21,7 +21,7 @@ enum PhotoRouter: APIConfiguration {
     var requestParams: APIRequestParams? {
         switch self {
         case .trending:
-            return getParams(request: ComoponentRequest(orderBy: "popular", perPage: 20))
+            return getParams(request: ComoponentRequest(perPage: 20))
         }
     }
 }

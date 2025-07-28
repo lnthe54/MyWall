@@ -57,6 +57,12 @@
 		99C3CA662E3725BC00691885 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA632E3725BC00691885 /* CategoryCell.swift */; };
 		99C3CA682E37630C00691885 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA672E37630C00691885 /* loading.json */; };
 		99C3CA6A2E37632300691885 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA692E37632300691885 /* LoadingView.swift */; };
+		99C3CA6D2E3765FE00691885 /* PhotoDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA6C2E3765FB00691885 /* PhotoDetailNavigator.swift */; };
+		99C3CA6F2E37664800691885 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA6E2E37664000691885 /* PhotoDetailViewModel.swift */; };
+		99C3CA722E37666400691885 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA702E37666400691885 /* PhotoDetailViewController.swift */; };
+		99C3CA732E37666400691885 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA712E37666400691885 /* PhotoDetailViewController.xib */; };
+		99C3CA772E3767BA00691885 /* PhotoDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA752E3767BA00691885 /* PhotoDetailCell.swift */; };
+		99C3CA782E3767BA00691885 /* PhotoDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA762E3767BA00691885 /* PhotoDetailCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +119,12 @@
 		99C3CA642E3725BC00691885 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		99C3CA672E37630C00691885 /* loading.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		99C3CA692E37632300691885 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		99C3CA6C2E3765FB00691885 /* PhotoDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailNavigator.swift; sourceTree = "<group>"; };
+		99C3CA6E2E37664000691885 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
+		99C3CA702E37666400691885 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		99C3CA712E37666400691885 /* PhotoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailViewController.xib; sourceTree = "<group>"; };
+		99C3CA752E3767BA00691885 /* PhotoDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailCell.swift; sourceTree = "<group>"; };
+		99C3CA762E3767BA00691885 /* PhotoDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailCell.xib; sourceTree = "<group>"; };
 		F204B8504CA8DDAFAE8198FD /* Pods-MyWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWall.debug.xcconfig"; path = "Target Support Files/Pods-MyWall/Pods-MyWall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +202,7 @@
 		99C3C9872E36737E00691885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				99C3CA6B2E3765EB00691885 /* PhotoDetail */,
 				99C3CA492E37064500691885 /* Discover */,
 				99C3CA202E36785A00691885 /* Main */,
 				99C3C9882E36738C00691885 /* Splash */,
@@ -332,6 +345,27 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		99C3CA6B2E3765EB00691885 /* PhotoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA742E3767A400691885 /* Cell */,
+				99C3CA6E2E37664000691885 /* PhotoDetailViewModel.swift */,
+				99C3CA6C2E3765FB00691885 /* PhotoDetailNavigator.swift */,
+				99C3CA702E37666400691885 /* PhotoDetailViewController.swift */,
+				99C3CA712E37666400691885 /* PhotoDetailViewController.xib */,
+			);
+			path = PhotoDetail;
+			sourceTree = "<group>";
+		};
+		99C3CA742E3767A400691885 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA752E3767BA00691885 /* PhotoDetailCell.swift */,
+				99C3CA762E3767BA00691885 /* PhotoDetailCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -393,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C3CA732E37666400691885 /* PhotoDetailViewController.xib in Resources */,
 				99C3C97E2E33634700691885 /* Assets.xcassets in Resources */,
 				99C3CA502E37079000691885 /* DiscoverViewController.xib in Resources */,
 				99C3C98C2E3673C500691885 /* SplashViewController.xib in Resources */,
@@ -400,6 +435,7 @@
 				99C3C9802E33634700691885 /* LaunchScreen.storyboard in Resources */,
 				99C3CA232E36785A00691885 /* MainViewController.xib in Resources */,
 				99C3CA592E371AB800691885 /* PhotoCell.xib in Resources */,
+				99C3CA782E3767BA00691885 /* PhotoDetailCell.xib in Resources */,
 				99C3CA652E3725BC00691885 /* CategoryCell.xib in Resources */,
 				99C3CA682E37630C00691885 /* loading.json in Resources */,
 			);
@@ -454,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C3CA6D2E3765FE00691885 /* PhotoDetailNavigator.swift in Sources */,
 				99C3CA212E36785A00691885 /* MainViewController.swift in Sources */,
 				99C3CA452E36880000691885 /* PhotoElement.swift in Sources */,
 				99C3CA222E36785A00691885 /* MainViewPager.swift in Sources */,
@@ -471,6 +508,7 @@
 				99C3CA112E3676CB00691885 /* Array+Extension.swift in Sources */,
 				99C3CA122E3676CB00691885 /* Then.swift in Sources */,
 				99C3CA132E3676CB00691885 /* Encodable.swift in Sources */,
+				99C3CA6F2E37664800691885 /* PhotoDetailViewModel.swift in Sources */,
 				99C3CA5E2E37223300691885 /* CategoryElement.swift in Sources */,
 				99C3CA142E3676CB00691885 /* AuthInterceptor.swift in Sources */,
 				99C3CA152E3676CB00691885 /* APIClient.swift in Sources */,
@@ -482,12 +520,14 @@
 				99C3CA5A2E371AB800691885 /* PhotoCell.swift in Sources */,
 				99C3CA192E3676CB00691885 /* APIResponse.swift in Sources */,
 				99C3CA662E3725BC00691885 /* CategoryCell.swift in Sources */,
+				99C3CA722E37666400691885 /* PhotoDetailViewController.swift in Sources */,
 				99C3CA4B2E37065D00691885 /* DiscoverNavigator.swift in Sources */,
 				99C3CA1A2E3676CB00691885 /* NSObject+Extension.swift in Sources */,
 				99C3CA602E3722A100691885 /* TopicRouter.swift in Sources */,
 				99C3CA302E36798A00691885 /* UICollectionView+Extension.swift in Sources */,
 				99C3CA392E36817D00691885 /* SplashViewModel.swift in Sources */,
 				99C3CA312E36798A00691885 /* Notification+Extension.swift in Sources */,
+				99C3CA772E3767BA00691885 /* PhotoDetailCell.swift in Sources */,
 				99C3CA1B2E3676CB00691885 /* UIView+Extension.swift in Sources */,
 				99C3CA4D2E37069800691885 /* DiscoverViewModel.swift in Sources */,
 				99C3CA512E37079000691885 /* DiscoverViewController.swift in Sources */,
@@ -517,9 +557,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 678Z7S5FB3;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyWall/SupportFiles/Info.plist;
@@ -551,9 +592,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 678Z7S5FB3;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyWall/SupportFiles/Info.plist;

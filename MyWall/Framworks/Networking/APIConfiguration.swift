@@ -31,9 +31,11 @@ extension APIConfiguration {
         urlRequest.httpMethod = method.rawValue
         
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
-        urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
+        if method != .get {
+            urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
+        }
+        urlRequest.setValue("v1", forHTTPHeaderField: HTTPHeaderField.accpetVersion.rawValue)
         
-        // Encode body
         switch requestParams {
         case .body(let body), .queryAndBody(_, let body):
             if method != .get && method != .delete {
@@ -90,6 +92,7 @@ enum HTTPHeaderField: String {
     case acceptType = "Accept"
     case acceptEncoding = "Accept-Encoding"
     case string = "String"
+    case accpetVersion = "Accept-Version"
 }
 
 enum ContentType: String {
