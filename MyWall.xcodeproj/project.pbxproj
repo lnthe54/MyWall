@@ -43,6 +43,10 @@
 		99C3CA422E3684D000691885 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA412E3684CE00691885 /* Constants.swift */; };
 		99C3CA452E36880000691885 /* PhotoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA442E3687FD00691885 /* PhotoElement.swift */; };
 		99C3CA482E3689F100691885 /* PhotoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA472E3689F100691885 /* PhotoClient.swift */; };
+		99C3CA4B2E37065D00691885 /* DiscoverNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA4A2E37065600691885 /* DiscoverNavigator.swift */; };
+		99C3CA4D2E37069800691885 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA4C2E37069300691885 /* DiscoverViewModel.swift */; };
+		99C3CA502E37079000691885 /* DiscoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C3CA4F2E37079000691885 /* DiscoverViewController.xib */; };
+		99C3CA512E37079000691885 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3CA4E2E37079000691885 /* DiscoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +89,10 @@
 		99C3CA412E3684CE00691885 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99C3CA442E3687FD00691885 /* PhotoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoElement.swift; sourceTree = "<group>"; };
 		99C3CA472E3689F100691885 /* PhotoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClient.swift; sourceTree = "<group>"; };
+		99C3CA4A2E37065600691885 /* DiscoverNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverNavigator.swift; sourceTree = "<group>"; };
+		99C3CA4C2E37069300691885 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		99C3CA4E2E37079000691885 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		99C3CA4F2E37079000691885 /* DiscoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverViewController.xib; sourceTree = "<group>"; };
 		F204B8504CA8DDAFAE8198FD /* Pods-MyWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWall.debug.xcconfig"; path = "Target Support Files/Pods-MyWall/Pods-MyWall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +169,7 @@
 		99C3C9872E36737E00691885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				99C3CA492E37064500691885 /* Discover */,
 				99C3CA202E36785A00691885 /* Main */,
 				99C3C9882E36738C00691885 /* Splash */,
 			);
@@ -274,6 +283,17 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		99C3CA492E37064500691885 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				99C3CA4C2E37069300691885 /* DiscoverViewModel.swift */,
+				99C3CA4A2E37065600691885 /* DiscoverNavigator.swift */,
+				99C3CA4E2E37079000691885 /* DiscoverViewController.swift */,
+				99C3CA4F2E37079000691885 /* DiscoverViewController.xib */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -336,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C3C97E2E33634700691885 /* Assets.xcassets in Resources */,
+				99C3CA502E37079000691885 /* DiscoverViewController.xib in Resources */,
 				99C3C98C2E3673C500691885 /* SplashViewController.xib in Resources */,
 				99C3CA352E367F6F00691885 /* GoogleService-Info.plist in Resources */,
 				99C3C9802E33634700691885 /* LaunchScreen.storyboard in Resources */,
@@ -415,11 +436,14 @@
 				99C3CA172E3676CB00691885 /* String+Extension.swift in Sources */,
 				99C3CA182E3676CB00691885 /* APIConfiguration.swift in Sources */,
 				99C3CA192E3676CB00691885 /* APIResponse.swift in Sources */,
+				99C3CA4B2E37065D00691885 /* DiscoverNavigator.swift in Sources */,
 				99C3CA1A2E3676CB00691885 /* NSObject+Extension.swift in Sources */,
 				99C3CA302E36798A00691885 /* UICollectionView+Extension.swift in Sources */,
 				99C3CA392E36817D00691885 /* SplashViewModel.swift in Sources */,
 				99C3CA312E36798A00691885 /* Notification+Extension.swift in Sources */,
 				99C3CA1B2E3676CB00691885 /* UIView+Extension.swift in Sources */,
+				99C3CA4D2E37069800691885 /* DiscoverViewModel.swift in Sources */,
+				99C3CA512E37079000691885 /* DiscoverViewController.swift in Sources */,
 				99C3CA1C2E3676CB00691885 /* UIColor+Extension.swift in Sources */,
 				99C3C9822E33634700691885 /* AppDelegate.swift in Sources */,
 			);

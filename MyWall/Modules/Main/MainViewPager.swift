@@ -52,7 +52,9 @@ class MainViewPager: UIPageViewController {
 extension MainViewPager {
     func createDiscoverTab() {
         discoverNavigationController = UINavigationController()
-        let viewController = UIViewController()
+        let navigator = DefaultDiscoverNavigator(navigationController: discoverNavigationController)
+        let viewModel = DiscoverViewModel()
+        let viewController = DiscoverViewController(navigator: navigator, viewModel: viewModel)
         discoverNavigationController.pushViewController(viewController, animated: true)
     }
     

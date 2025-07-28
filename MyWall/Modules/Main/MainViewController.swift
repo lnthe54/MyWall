@@ -57,6 +57,24 @@ class MainViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        searchView.rx.tapGesture().when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self else { return }
+                
+                mainViewPager.moveToScreen(at: .search)
+                handleTap(isActiveSearch: true)
+            })
+            .disposed(by: disposeBag)
+        
+        favoriteView.rx.tapGesture().when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self else { return }
+                
+                mainViewPager.moveToScreen(at: .favorite)
+                handleTap(isActiveFavorite: true)
+            })
+            .disposed(by: disposeBag)
+        
         settingView.rx.tapGesture().when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 guard let self else { return }
@@ -67,6 +85,10 @@ class MainViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         handleTap(isActiveDiscover: true)
+        discoverIcon.image = UIImage(systemName: "safari")
+        searchIcon.image = UIImage(systemName: "magnifyingglass")
+        favoriteIcon.image = UIImage(systemName: "heart")
+        settingIcon.image = UIImage(systemName: "gearshape")
     }
     
     private func handleTap(
@@ -75,18 +97,10 @@ class MainViewController: BaseViewController {
         isActiveFavorite: Bool = false,
         isActiveSetting: Bool = false
     ) {
-        // Do something with the tabbar
-    }
-
-    private func setTab(
-        icon: UIImageView,
-        activeImage: String,
-        inactiveImage: String,
-        lineView: UIView,
-        isActive: Bool
-    ) {
-        icon.image = UIImage(named: isActive ? activeImage : inactiveImage)
-        lineView.backgroundColor = isActive ? .pimaryColor : .clear
+        discoverIcon.tintColor = isActiveDiscover ? .white : .darkGray
+        searchIcon.tintColor = isActiveSearch ? .white : .darkGray
+        favoriteIcon.tintColor = isActiveFavorite ? .white : .darkGray
+        settingIcon.tintColor = isActiveSetting ? .white : .darkGray
     }
     
     private func setupMainViewPager() {

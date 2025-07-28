@@ -14,6 +14,9 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        view.backgroundColor = .blackColor
+        
         bindViewModel()
         setupViews()
     }
@@ -24,5 +27,11 @@ class BaseViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+extension BaseViewController {
+    func postNoficaition(name: Notification.Name) {
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }
