@@ -6,6 +6,6 @@ struct Constants {
     static let BOTTOM_TABBAR: CGFloat = 100
     
     struct Network {
-        static let hostURL: String = "https://api.unsplash.com/"
+        static let hostURL: String = "https://api.pexels.com/v1/"
     }
 }

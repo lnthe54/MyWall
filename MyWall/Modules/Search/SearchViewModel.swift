@@ -1,25 +1,23 @@
 import RxSwift
 import RxCocoa
 
-class DiscoverViewModel: ViewModelType {
- 
+class SearchViewModel: ViewModelType {
+    
     // MARK: - Properties
     private var photoServices: PhotoServices
     
-    init(
-        photoServices: PhotoServices = PhotoClient()
-    ) {
+    init(photoServices: PhotoServices = PhotoClient()) {
         self.photoServices = photoServices
     }
     
-    struct Input  {
-        let getDataTrigger: Observable<Void>
+    struct Input {
+        let getDataTrigger: Observable<Int>
     }
     
     struct Output {
         let loadingEvent: Driver<Bool>
         let errorEvent: Driver<Error>
-        let getDataEvent: Driver<DiscoverData>
+        let getDataEvent: Driver<[PhotoElement]>
     }
     
     func transform(input: Input) -> Output {
@@ -27,15 +25,13 @@ class DiscoverViewModel: ViewModelType {
         let error = ErrorTracker()
         
         let getDataEvent = input.getDataTrigger
-            .flatMapLatest(weak: self) { (self, _) in
+            .flatMapLatest(weak: self) { (self, page) in
                 self.photoServices
                     .getTrending()
                     .trackError(error)
                     .trackActivity(loading)
             }
-            .map {
-                return DiscoverData(trendingItems: $0.photos, categories: [])
-            }
+            .map { $0.photos ?? [] }
         
         return Output(
             loadingEvent: loading.asDriver(),
@@ -45,15 +41,3 @@ class DiscoverViewModel: ViewModelType {
     }
 }
 
-struct DiscoverData {
-    var trendingItems: [PhotoElement]
-    
-    var categories: [CategoryElement]
-    
-    static func empty() -> DiscoverData {
-        return DiscoverData(
-            trendingItems: [],
-            categories: []
-        )
-    }
-}

@@ -31,10 +31,7 @@ extension APIConfiguration {
         urlRequest.httpMethod = method.rawValue
         
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
-        if method != .get {
-            urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-        }
-        urlRequest.setValue("v1", forHTTPHeaderField: HTTPHeaderField.accpetVersion.rawValue)
+        urlRequest.setValue(RemoteConfigManager.shared.string(forKey: .apiKey), forHTTPHeaderField: HTTPHeaderField.authentication.rawValue)
         
         switch requestParams {
         case .body(let body), .queryAndBody(_, let body):
@@ -51,39 +48,18 @@ extension APIConfiguration {
 
 extension APIConfiguration {
     func getParams(request: ComoponentRequest) -> APIRequestParams {
-        var params: [String: Any] = [
-            "client_id": RemoteConfigManager.shared.string(forKey: .clientID)
-        ]
+        var params: [String: Any] = [:]
         
-        params["per_page"] = request.perPage
-        
-        if let orderBy = request.orderBy {
-            params["order_by"] = orderBy
-        }
+        // Append param
         
         return .query(params)
-    }
-    
-    func getParams(formQuery query: String) -> [String: Any] {
-        if let url = URL(string: query),
-           let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-           let queryItems = components.queryItems {
-            
-            let params: [String: String] = queryItems.reduce(into: [:]) { result, item in
-                if item.name != "page" {
-                    result[item.name] = item.value ?? ""
-                }
-            }
-            return params
-        } else {
-            return [:]
-        }
     }
 }
 
 struct ComoponentRequest {
     var orderBy: String? = nil
-    var perPage: Int = 10
+    var page: Int?
+    var perPage: Int?
 }
 
 enum HTTPHeaderField: String {

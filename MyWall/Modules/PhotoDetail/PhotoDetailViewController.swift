@@ -70,8 +70,8 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoDetailCell.className, for: indexPath) as! PhotoDetailCell
-        if let urlElement = items[indexPath.row].urls {
-            cell.bindURL(urlElement)
+        if let sourceElement = items[indexPath.row].source {
+            cell.bindURL(sourceElement)
         }
         return cell
     }

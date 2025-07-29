@@ -47,6 +47,7 @@ class DiscoverViewController: BaseViewController {
     override func setupViews() {
         collectionView.configure(
             withCells: [PhotoCell.self, CategoryCell.self],
+            headers: [TitleHeaderSection.self],
             delegate: self,
             dataSource: self,
             contentInset: UIEdgeInsets(top: 0, left: 0, bottom: Constants.BOTTOM_TABBAR, right: 0)
@@ -91,7 +92,7 @@ extension DiscoverViewController {
             
             switch section {
             case .trending:
-                return AppLayout.horizontalSection(isShowHeader: false)
+                return AppLayout.horizontalSection()
             case .category:
                 return AppLayout.categorySection()
             }
@@ -138,10 +139,40 @@ extension DiscoverViewController: UICollectionViewDataSource {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == "Header" else {
+            return UICollectionReusableView()
+        }
+
+        let sectionType = getSections()[indexPath.section]
+        
+        let title: String = {
+            switch sectionType {
+            case .trending:
+                return "Trending"
+            case .category:
+                return "Categories"
+            default:
+                return ""
+            }
+        }()
+        
+        guard !title.isEmpty else { return UICollectionReusableView() }
+
+        return titleHeaderSection(
+            collectionView,
+            viewForSupplementaryElementOfKind: kind,
+            indexPath: indexPath,
+            title: title
+        )
+    }
+    
     private func photoCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> PhotoCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.className, for: indexPath) as! PhotoCell
-        if let urlElement = discoverData.trendingItems[indexPath.row].urls {
-            cell.bindURL(urlElement)
+        if let sourceElement = discoverData.trendingItems[indexPath.row].source {
+            cell.bindURL(sourceElement)
         }
         return cell
     }
@@ -149,9 +180,9 @@ extension DiscoverViewController: UICollectionViewDataSource {
     private func categoryCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> CategoryCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.className, for: indexPath) as! CategoryCell
         let category = discoverData.categories[indexPath.row]
-        if let title = category.title, let urlElement = category.coverPhoto?.urls {
-            cell.bindCategory(title: title, url: urlElement)
-        }
+//        if let title = category.title, let urlElement = category.coverPhoto?.urls {
+//            cell.bindCategory(title: title, url: urlElement)
+//        }
         return cell
     }
 }

@@ -42,4 +42,19 @@ extension BaseViewController {
             LoadingView.shared.endLoading()
         }
     }
+    
+    func titleHeaderSection(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        indexPath: IndexPath,
+        title: String
+    ) -> TitleHeaderSection {
+        let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: TitleHeaderSection.className,
+            for: indexPath
+        ) as! TitleHeaderSection
+        header.bindTitle(title)
+        return header
+    }
 }

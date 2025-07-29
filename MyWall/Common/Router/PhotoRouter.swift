@@ -14,14 +14,14 @@ enum PhotoRouter: APIConfiguration {
     var path: String {
         switch self {
         case .trending:
-            return "photos"
+            return "curated"
         }
     }
     
     var requestParams: APIRequestParams? {
         switch self {
         case .trending:
-            return getParams(request: ComoponentRequest(perPage: 20))
+            return getParams(request: ComoponentRequest(orderBy: "popular", perPage: 20))
         }
     }
 }

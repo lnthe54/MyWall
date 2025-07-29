@@ -13,9 +13,9 @@ class PhotoDetailCell: UICollectionViewCell {
         posterImageView.contentMode = .scaleAspectFill
     }
 
-    func bindURL(_ url: URLElement) {
+    func bindURL(_ source: SourceElement) {
         posterImageView.kf.setImage(
-            with: URL(string: url.raw ?? ""),
+            with: URL(string: source.portrait ?? ""),
             placeholder: UIImage(named: "ic_loading"),
             options: [.transition(ImageTransition.fade(1))]
         )

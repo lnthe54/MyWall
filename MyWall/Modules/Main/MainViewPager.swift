@@ -60,7 +60,9 @@ extension MainViewPager {
     
     func createSearchTab() {
         searchNavigationController = UINavigationController()
-        let viewController = UIViewController()
+        let navigator = DefaultSearchNavigator(navigationController: searchNavigationController)
+        let viewModel = SearchViewModel()
+        let viewController = SearchViewController(navigator: navigator, viewModel: viewModel)
         searchNavigationController.pushViewController(viewController, animated: true)
     }
     

@@ -1,63 +1,55 @@
 import Foundation
 
-struct PhotoElement: Codable {
-    var id: String?
-    var createdAt: String?
-    var updatedAt: String?
-    var width: Int?
-    var height: Int?
-    var color: String?
-    var description: String?
-    var urls: URLElement?
-    var links: LinkElement?
-    var likes: Int?
-    var likedByUser: Bool?
-    var assetType: String?
+struct PhotoContainer: Codable {
+    let photos: [PhotoElement]
+    
+    enum CodingKeys: String, CodingKey {
+        case photos = "photos"
+    }
+}
 
+struct PhotoElement: Codable {
+    let id: Int?
+    let width: Int?
+    let height: Int?
+    let url: String?
+    let photographer: String?
+    let photographerURL: String?
+    let photographerID: Int?
+    let avgColor: String?
+    let source: SourceElement?
+    
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
         case width = "width"
         case height = "height"
-        case color = "color"
-        case description = "description"
-        case urls = "urls"
-        case links = "links"
-        case likes = "likes"
-        case likedByUser = "liked_by_user"
-        case assetType = "asset_type"
+        case url = "url"
+        case photographer = "photographer"
+        case photographerURL = "photographer_url"
+        case photographerID = "photographer_id"
+        case avgColor = "avg_color"
+        case source = "src"
     }
 }
 
-struct URLElement: Codable {
-    var raw: String?
-    var full: String?
-    var regular: String?
-    var small: String?
-    var thumb: String?
-    var smallS3: String?
-
+struct SourceElement: Codable {
+    let original: String?
+    let large2X: String?
+    let large: String?
+    let medium: String?
+    let small: String?
+    let portrait: String?
+    let landscape: String?
+    let tiny: String?
+    
     enum CodingKeys: String, CodingKey {
-        case raw = "raw"
-        case full = "full"
-        case regular = "regular"
+        case original = "original"
+        case large2X = "large2x"
+        case large = "large"
+        case medium = "medium"
         case small = "small"
-        case thumb = "thumb"
-        case smallS3 = "small_s3"
-    }
-}
-
-struct LinkElement: Codable {
-    var linksSelf: String?
-    var html: String?
-    var download: String?
-    var downloadLocation: String?
-
-    enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-        case html = "html"
-        case download = "download"
-        case downloadLocation = "download_location"
+        case portrait = "portrait"
+        case landscape = "landscape"
+        case tiny = "tiny"
     }
 }

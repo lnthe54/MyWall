@@ -54,16 +54,16 @@ class AppLayout {
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 4)
-//        section.boundarySupplementaryItems = [
-//            .init(
-//                layoutSize: .init(
-//                    widthDimension: .fractionalWidth(1),
-//                    heightDimension: .absolute(50)
-//                ),
-//                elementKind: "Header",
-//                alignment: .top
-//            )
-//        ]
+        section.boundarySupplementaryItems = [
+            .init(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(50)
+                ),
+                elementKind: "Header",
+                alignment: .top
+            )
+        ]
         return section
     }
     

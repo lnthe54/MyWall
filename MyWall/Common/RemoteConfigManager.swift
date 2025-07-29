@@ -7,7 +7,7 @@ class RemoteConfigManager {
     static let shared = RemoteConfigManager()
     
     enum RemoteConfigKeys: String {
-        case clientID = "clientId"
+        case apiKey = "apiKey"
     }
     
     private init() {
@@ -16,7 +16,7 @@ class RemoteConfigManager {
     
     func loadDefaultValues() {
         let appDefaults: [String: Any?] = [
-            RemoteConfigKeys.clientID.rawValue: ""
+            RemoteConfigKeys.apiKey.rawValue: ""
         ]
         
         RemoteConfig.remoteConfig().setDefaults(appDefaults as? [String: NSObject])

@@ -16,14 +16,14 @@ class CategoryCell: UICollectionViewCell {
         
         containerView.backgroundColor = .blackColor.withAlphaComponent(0.3)
         categoryLabel.textColor = .white
-        categoryLabel.font = .systemFont(ofSize: 24, weight: .bold)
+        categoryLabel.font = .systemFont(ofSize: 16, weight: .bold)
         categoryLabel.numberOfLines = 0
         categoryLabel.textAlignment = .center
     }
 
-    func bindCategory(title: String, url: URLElement) {
+    func bindCategory(title: String, source: SourceElement) {
         posterImageView.kf.setImage(
-            with: URL(string: url.thumb ?? ""),
+            with: URL(string: source.medium ?? ""),
             placeholder: UIImage(named: "ic_loading"),
             options: [.transition(ImageTransition.fade(1))]
         )
