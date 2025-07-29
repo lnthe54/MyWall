@@ -50,7 +50,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sx5-h4-Mvv">
-                    <rect key="frame" x="0.0" y="99" width="393" height="753"/>
+                    <rect key="frame" x="0.0" y="119" width="393" height="733"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j0r-9f-9WP">
                         <size key="itemSize" width="128" height="128"/>
@@ -64,7 +64,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9N7-ng-crY" secondAttribute="trailing" constant="16" id="Gfs-mB-4Ui"/>
-                <constraint firstItem="sx5-h4-Mvv" firstAttribute="top" secondItem="9N7-ng-crY" secondAttribute="bottom" id="McA-sJ-2Ue"/>
+                <constraint firstItem="sx5-h4-Mvv" firstAttribute="top" secondItem="9N7-ng-crY" secondAttribute="bottom" constant="20" id="McA-sJ-2Ue"/>
                 <constraint firstItem="9N7-ng-crY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="O7o-K2-tps"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sx5-h4-Mvv" secondAttribute="trailing" id="QCj-cx-fQ4"/>
                 <constraint firstItem="sx5-h4-Mvv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VdS-fC-85S"/>

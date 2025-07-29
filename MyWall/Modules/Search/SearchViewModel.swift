@@ -27,11 +27,11 @@ class SearchViewModel: ViewModelType {
         let getDataEvent = input.getDataTrigger
             .flatMapLatest(weak: self) { (self, page) in
                 self.photoServices
-                    .getTrending()
+                    .getTrending(page: page)
                     .trackError(error)
                     .trackActivity(loading)
             }
-            .map { $0.photos ?? [] }
+            .map { $0.photos }
         
         return Output(
             loadingEvent: loading.asDriver(),

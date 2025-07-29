@@ -1,7 +1,7 @@
 import Alamofire
 
 enum PhotoRouter: APIConfiguration {
-    case trending
+    case trending(page: Int)
     
     var hostURL: String {
         return Constants.Network.hostURL
@@ -20,8 +20,8 @@ enum PhotoRouter: APIConfiguration {
     
     var requestParams: APIRequestParams? {
         switch self {
-        case .trending:
-            return getParams(request: ComoponentRequest(orderBy: "popular", perPage: 20))
+        case .trending(let page):
+            return getParams(request: ComoponentRequest(page: page))
         }
     }
 }

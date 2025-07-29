@@ -50,7 +50,9 @@ extension APIConfiguration {
     func getParams(request: ComoponentRequest) -> APIRequestParams {
         var params: [String: Any] = [:]
         
-        // Append param
+        if let page = request.page {
+            params["page"] = page
+        }
         
         return .query(params)
     }

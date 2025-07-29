@@ -29,7 +29,7 @@ class DiscoverViewModel: ViewModelType {
         let getDataEvent = input.getDataTrigger
             .flatMapLatest(weak: self) { (self, _) in
                 self.photoServices
-                    .getTrending()
+                    .getTrending(page: 1)
                     .trackError(error)
                     .trackActivity(loading)
             }

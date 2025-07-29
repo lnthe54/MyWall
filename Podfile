@@ -15,6 +15,8 @@ target 'MyWall' do
   # Animation
   pod 'lottie-ios'
   
+  pod 'CHTCollectionViewWaterfallLayout'
+  
   # Firebase
   pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git',
   :tag => 'CocoaPods-10.24.0'
