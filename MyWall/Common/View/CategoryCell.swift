@@ -21,12 +21,12 @@ class CategoryCell: UICollectionViewCell {
         categoryLabel.textAlignment = .center
     }
 
-    func bindCategory(title: String, source: SourceElement) {
+    func bindCategory(_ category: CategoryElement) {
         posterImageView.kf.setImage(
-            with: URL(string: source.medium ?? ""),
+            with: URL(string: category.background),
             placeholder: UIImage(named: "ic_loading"),
             options: [.transition(ImageTransition.fade(1))]
         )
-        categoryLabel.text = title
+        categoryLabel.text = category.name
     }
 }

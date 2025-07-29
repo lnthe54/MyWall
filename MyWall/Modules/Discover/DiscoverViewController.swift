@@ -13,6 +13,7 @@ class DiscoverViewController: BaseViewController {
     private var navigator: DiscoverNavigator
     private var viewModel: DiscoverViewModel
     private var discoverData: DiscoverData = .empty()
+    private var categories: [CategoryElement] = []
     
     private let getDataTrigger = PublishSubject<Void>()
     
@@ -35,6 +36,7 @@ class DiscoverViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categories = RemoteConfigManager.shared.getCategories()
         getDataTrigger.onNext(())
     }
     
@@ -108,7 +110,7 @@ extension DiscoverViewController {
             sections.append(.trending)
         }
         
-        if discoverData.categories.isNotEmpty {
+        if categories.isNotEmpty {
             sections.append(.category)
         }
         
@@ -126,7 +128,7 @@ extension DiscoverViewController: UICollectionViewDataSource {
         case .trending:
             return discoverData.trendingItems.count
         case .category:
-            return discoverData.categories.count
+            return categories.count
         }
     }
     
@@ -179,10 +181,7 @@ extension DiscoverViewController: UICollectionViewDataSource {
     
     private func categoryCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> CategoryCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.className, for: indexPath) as! CategoryCell
-        let category = discoverData.categories[indexPath.row]
-//        if let title = category.title, let urlElement = category.coverPhoto?.urls {
-//            cell.bindCategory(title: title, url: urlElement)
-//        }
+        cell.bindCategory(categories[indexPath.row])
         return cell
     }
 }

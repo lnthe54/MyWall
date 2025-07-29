@@ -33,9 +33,7 @@ class DiscoverViewModel: ViewModelType {
                     .trackError(error)
                     .trackActivity(loading)
             }
-            .map {
-                return DiscoverData(trendingItems: $0.photos, categories: [])
-            }
+            .map { DiscoverData(trendingItems: $0.photos) }
         
         return Output(
             loadingEvent: loading.asDriver(),
@@ -48,12 +46,9 @@ class DiscoverViewModel: ViewModelType {
 struct DiscoverData {
     var trendingItems: [PhotoElement]
     
-    var categories: [CategoryElement]
-    
     static func empty() -> DiscoverData {
         return DiscoverData(
-            trendingItems: [],
-            categories: []
+            trendingItems: []
         )
     }
 }
